@@ -1,7 +1,7 @@
 name: ee627
 channels:
-  - anaconda
   - conda-forge
+  - anaconda
   - defaults
 dependencies:
   - _libgcc_mutex=0.1
@@ -139,3 +139,26 @@ dependencies:
   - zeromq=4.3.3
   - zlib=1.2.11
   - zstd=1.4.5
+  - pip:
+    - async-generator==1.10
+    - attrs==20.3.0
+    - bleach==3.3.0
+    - defusedxml==0.6.0
+    - entrypoints==0.3
+    - importlib-metadata==3.7.0
+    - jinja2==2.11.3
+    - jsonschema==3.2.0
+    - jupyterlab-pygments==0.1.2
+    - markupsafe==1.1.1
+    - mistune==0.8.4
+    - nbclient==0.5.3
+    - nbconvert==6.0.0
+    - nbformat==5.1.2
+    - nest-asyncio==1.5.1
+    - packaging==20.9
+    - pandocfilters==1.4.3
+    - pyrsistent==0.17.3
+    - testpath==0.4.4
+    - typing-extensions==3.7.4.3
+    - webencodings==0.5.1
+    - zipp==3.4.0
