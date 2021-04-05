@@ -9,6 +9,13 @@ import numpy as np
 def matrix_factorization(R, P, Q, K, steps, alpha, beta):
     """
     matrix factorization
+    R = rating matrix
+    P = User features matrix
+    Q = Item features matrix
+    K = latent features
+    steps = number of iterations
+    alpha = learning rate
+    beta = regularization parameter
     """
     Q_t = Q.T
     for step in range(steps):
@@ -16,12 +23,12 @@ def matrix_factorization(R, P, Q, K, steps, alpha, beta):
             for j, elem_j in enumerate(elem_i):
                 if elem_j <= 0:
                     continue
-                new_i_j = elem_j - np.dot(P[i, :], Q_t[:, j])
+                e_i_j = elem_j - np.dot(P[i, :], Q_t[:, j])
                 for k in range(K):
                     P[i][k] = P[i][k] + alpha * \
-                        (2 * new_i_j * Q_t[k][j] - beta * P[i][k])
+                        (2 * e_i_j * Q_t[k][j] - beta * P[i][k])
                     Q_t[k][j] = Q_t[k][j] + alpha * \
-                        (2 * new_i_j * P[i][k] - beta * Q_t[k][j])
+                        (2 * e_i_j * P[i][k] - beta * Q_t[k][j])
         err = 0.
         for i, elem_i in enumerate(R):
             for j, elem_j in enumerate(elem_i):
